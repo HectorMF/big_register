@@ -33,7 +33,7 @@ module BIGRegister
 
     def list_hcp(initials, name, gender, specialism)
       message = create_message(initials, name, gender, specialism)
-      response = @client.call(:list_hcp_approx3, message: message)
+      response = @client.call(:list_hcp_approx4, message: message)
       result = format_response(response)
       result = [result] if result.class == Hash
       result
@@ -45,7 +45,7 @@ module BIGRegister
         "RegistrationNumber" => big_number
       }
       begin
-        response = @client.call(:list_hcp_approx3, message: message)
+        response = @client.call(:list_hcp_approx4, message: message)
         format_response(response)
       rescue Savon::SOAPFault => e
         raise NotFoundError.new(e.message)
@@ -67,8 +67,8 @@ module BIGRegister
     end
 
     def format_response(response)
-      result = response.body[:list_hcp_approx3_result][:list_hcp_approx] ||= []
-      result = result[:list_hcp_approx3] unless result.empty?
+      result = response.body[:list_hcp_approx4_result][:list_hcp_approx] ||= []
+      result = result[:list_hcp_approx4] unless result.empty?
       result
     end
 
