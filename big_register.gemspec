@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.homepage      = 'http://github.com/finalist/big_register'
 
-  gem.add_dependency "savon",          "~> 2.1.0"
+  gem.add_dependency "savon",          "~> 2.11.0"
 
   gem.add_development_dependency "pry-nav",        "~> 0.2.3"
   gem.add_development_dependency "rspec",          "~> 2.12.0"
